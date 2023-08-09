@@ -2,23 +2,23 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'wiflutter_method_channel.dart';
 
-abstract class WiflutterPlatform extends PlatformInterface {
-  /// Constructs a WiflutterPlatform.
-  WiflutterPlatform() : super(token: _token);
+abstract class WiFlutterPlatform extends PlatformInterface {
+  /// Constructs a WiFlutterPlatform.
+  WiFlutterPlatform() : super(token: _token);
 
   static final Object _token = Object();
 
-  static WiflutterPlatform _instance = MethodChannelWiflutter();
+  static WiFlutterPlatform _instance = MethodChannelWiFlutter();
 
-  /// The default instance of [WiflutterPlatform] to use.
+  /// The default instance of [WiFlutterPlatform] to use.
   ///
-  /// Defaults to [MethodChannelWiflutter].
-  static WiflutterPlatform get instance => _instance;
+  /// Defaults to [MethodChannelWiFlutter].
+  static WiFlutterPlatform get instance => _instance;
 
   /// Platform-specific implementations should set this with their own
-  /// platform-specific class that extends [WiflutterPlatform] when
+  /// platform-specific class that extends [WiFlutterPlatform] when
   /// they register themselves.
-  static set instance(WiflutterPlatform instance) {
+  static set instance(WiFlutterPlatform instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }

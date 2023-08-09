@@ -1,4 +1,4 @@
-# wiflutter
+# WiFlutter
 
 A new Flutter plugin project.
 
