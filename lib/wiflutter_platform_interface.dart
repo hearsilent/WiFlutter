@@ -26,4 +26,19 @@ abstract class WiFlutterPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<bool?> connect({
+    String? ssid,
+    String? bssid,
+    String? password,
+    bool joinOnce = true,
+    bool withInternet = false,
+    int timeoutInSeconds = 30,
+  }) async {
+    throw UnimplementedError('connect() has not been implemented.');
+  }
+
+  Future<bool?> disconnect() async {
+    throw UnimplementedError('disconnect() has not been implemented.');
+  }
 }

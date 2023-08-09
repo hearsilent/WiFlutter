@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _wiflutterPlugin = WiFlutter();
+  final _wiFlutterPlugin = WiFlutter();
 
   @override
   void initState() {
@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await _wiflutterPlugin.getPlatformVersion() ?? 'Unknown platform version';
+      platformVersion = await _wiFlutterPlugin.getPlatformVersion() ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -55,7 +55,22 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Running on: $_platformVersion\n'),
+              ElevatedButton(
+                  onPressed: () async {
+                    await _wiFlutterPlugin.connect();
+                  },
+                  child: const Text("Connect")),
+              ElevatedButton(
+                  onPressed: () async {
+                    await _wiFlutterPlugin.disconnect();
+                  },
+                  child: const Text("Disconnect")),
+            ],
+          ),
         ),
       ),
     );

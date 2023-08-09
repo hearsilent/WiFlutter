@@ -15,4 +15,23 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
         await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
   }
+
+  @override
+  Future<bool?> connect({
+    String? ssid,
+    String? bssid,
+    String? password,
+    bool joinOnce = true,
+    bool withInternet = false,
+    int timeoutInSeconds = 30,
+  }) async {
+    final version = await methodChannel.invokeMethod<bool>('connect');
+    return version;
+  }
+
+  @override
+  Future<bool?> disconnect() async {
+    final version = await methodChannel.invokeMethod<bool>('disconnect');
+    return version;
+  }
 }
