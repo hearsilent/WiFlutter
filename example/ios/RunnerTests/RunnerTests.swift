@@ -11,7 +11,11 @@ import XCTest
 class RunnerTests: XCTestCase {
 
   func testGetPlatformVersion() {
+<<<<<<< HEAD
     let plugin = WiFlutterPlugin()
+=======
+    let plugin = WiflutterPlugin()
+>>>>>>> 1d0974c (Create flutter plugin project)
 
     let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 

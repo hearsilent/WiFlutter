@@ -32,7 +32,6 @@ Disconnect:
 await _wiFlutterPlugin.disconnect();
 ```
 
-<<<<<<< HEAD
 ## Wi-Fi connections
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
@@ -43,10 +42,8 @@ await _wiFlutterPlugin.disconnect();
 | Get Wi-Fi current SSID                                | :x: 				 |  :x:  				|
 | Get Wi-Fi current IP                                	| :x: 				 |  :x:  				|
 
-=======
 ## TODO
 - Support iOS devices
->>>>>>> 4ab436a (Update README.md)
 
 ## Compatibility
 
@@ -75,4 +72,3 @@ Android LOLLIPOP 5.0+
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
-

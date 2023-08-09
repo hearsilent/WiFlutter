@@ -2,7 +2,10 @@ name: wiflutter
 description: A new Flutter plugin project.
 version: 0.0.1
 homepage:
+<<<<<<< HEAD
 repository: https://github.com/hearsilent/WiFlutter
+=======
+>>>>>>> 1d0974c (Create flutter plugin project)
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
@@ -36,10 +39,17 @@ flutter:
   plugin:
     platforms:
       android:
+<<<<<<< HEAD
         package: hearsilent.wiflutter
         pluginClass: WiFlutterPlugin
       ios:
         pluginClass: WiFlutterPlugin
+=======
+        package: hearsilent.wiflutter.wiflutter
+        pluginClass: WiflutterPlugin
+      ios:
+        pluginClass: WiflutterPlugin
+>>>>>>> 1d0974c (Create flutter plugin project)
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

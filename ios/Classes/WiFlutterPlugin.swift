@@ -1,10 +1,10 @@
 import Flutter
 import UIKit
 
-public class WiFlutterPlugin: NSObject, FlutterPlugin {
+public class WiflutterPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "wiflutter", binaryMessenger: registrar.messenger())
-    let instance = WiFlutterPlugin()
+    let instance = WiflutterPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 

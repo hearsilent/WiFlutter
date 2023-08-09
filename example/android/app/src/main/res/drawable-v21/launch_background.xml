@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?><!-- Modify this file to customize your launch splash screen -->
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+>>>>>>> 1d0974c (Create flutter plugin project)
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="?android:colorBackground" />
 
