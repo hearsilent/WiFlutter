@@ -3,19 +3,13 @@ import 'package:flutter/services.dart';
 
 import 'wiflutter_platform_interface.dart';
 
-<<<<<<< HEAD
 /// An implementation of [WiFlutterPlatform] that uses method channels.
 class MethodChannelWiFlutter extends WiFlutterPlatform {
-=======
-/// An implementation of [WiflutterPlatform] that uses method channels.
-class MethodChannelWiflutter extends WiflutterPlatform {
->>>>>>> 1d0974c (Create flutter plugin project)
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('wiflutter');
 
   @override
-<<<<<<< HEAD
   Future<bool?> connect({
     required String ssid,
     String? bssid,
@@ -49,10 +43,4 @@ class MethodChannelWiflutter extends WiflutterPlatform {
   @override
   Future<bool?> setWifiEnabled(bool enable) async =>
       await methodChannel.invokeMethod<bool>('set_wifi_enabled');
-=======
-  Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
-  }
->>>>>>> 1d0974c (Create flutter plugin project)
 }
