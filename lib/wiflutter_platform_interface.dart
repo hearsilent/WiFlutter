@@ -23,10 +23,6 @@ abstract class WiFlutterPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
-  }
-
   Future<bool?> connect({
     required String ssid,
     String? bssid,

@@ -10,11 +10,6 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   final methodChannel = const MethodChannel('wiflutter');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    return await methodChannel.invokeMethod<String>('getPlatformVersion');
-  }
-
-  @override
   Future<bool?> connect({
     required String ssid,
     String? bssid,

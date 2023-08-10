@@ -27,10 +27,6 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "getPlatformVersion" -> {
-                result.success("Android ${android.os.Build.VERSION.RELEASE}")
-            }
-
             "connect" -> {
                 val ssid = call.argument<String>("ssid")
                     ?: return result.error("404", null, null)
