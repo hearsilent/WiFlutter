@@ -32,6 +32,7 @@ Disconnect:
 await _wiFlutterPlugin.disconnect();
 ```
 
+<<<<<<< HEAD
 ## Wi-Fi connections
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
@@ -42,6 +43,10 @@ await _wiFlutterPlugin.disconnect();
 | Get Wi-Fi current SSID                                | :x: 				 |  :x:  				|
 | Get Wi-Fi current IP                                	| :x: 				 |  :x:  				|
 
+=======
+## TODO
+- Support iOS devices
+>>>>>>> 4ab436a (Update README.md)
 
 ## Compatibility
 
