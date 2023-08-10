@@ -35,7 +35,7 @@ await _wiFlutterPlugin.disconnect();
 ## Wi-Fi connections
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
-| Connect/Disconnect  									| :white_check_mark  |  :x:  				|
+| Connect/Disconnect  									| :white_check_mark: |  :x:  				|
 | Wi-Fi Protected Access								| :x:				 |  :x:  				|
 | Enable/Disable Wi-Fi                       			| :x: 				 |  :x:  				|
 | Get Wi-Fi status                                   	| :x: 				 |  :x:  				|
