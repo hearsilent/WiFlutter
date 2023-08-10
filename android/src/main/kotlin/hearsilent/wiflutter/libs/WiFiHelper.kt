@@ -3,6 +3,7 @@ package hearsilent.wiflutter.libs
 import android.annotation.TargetApi
 import android.content.Context
 import android.net.ConnectivityManager
+import android.net.ConnectivityManager.NetworkCallback
 import android.net.MacAddress
 import android.net.Network
 import android.net.NetworkCapabilities
@@ -18,9 +19,16 @@ object WiFiHelper {
 
     private const val TAG = "WiFiHelper"
 
-    private var mCallback: ConnectivityManager.NetworkCallback? = null
+    private var mCallback: NetworkCallback? = null
     private var mConnectivityManager: ConnectivityManager? = null
 
+    /**
+     * **This method was deprecated in API level 31.**
+     *
+     * Starting with [*Build.VERSION_CODES#S*](https://developer.android.com/reference/android/os/Build.VERSION_CODES#S), WifiInfo retrieval is moved to [***ConnectivityManager***](https://developer.android.com/reference/android/net/ConnectivityManager) API surface. WifiInfo is attached in [***NetworkCapabilities#getTransportInfo()***](https://developer.android.com/reference/android/net/NetworkCapabilities#getTransportInfo()) which is available via callback in [***NetworkCallback#onCapabilitiesChanged(Network, NetworkCapabilities)***](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onCapabilitiesChanged(android.net.Network,%20android.net.NetworkCapabilities)) or on-demand from [***ConnectivityManager#getNetworkCapabilities(Network).***](https://developer.android.com/reference/android/net/ConnectivityManager#getNetworkCapabilities(android.net.Network))
+     *
+     * For more information about ***connectionInfo***, see [getConnectionInfo](https://developer.android.com/reference/android/net/wifi/WifiManager#getConnectionInfo()).
+     */
     @JvmStatic
     fun getCurrentSSID(context: Context): String? {
         val wifiManager =
@@ -43,14 +51,12 @@ object WiFiHelper {
     }
 
     @JvmStatic
-    @Suppress("deprecation")
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     fun requestNetwork(
         context: Context,
         ssid: String,
         bssid: String? = null,
         password: String? = null,
-        joinOnce: Boolean? = true,
         withInternet: Boolean = false,
         timeoutInSeconds: Int = 30
     ): Boolean {
@@ -59,7 +65,7 @@ object WiFiHelper {
         if (BuildConfig.DEBUG) {
             Log.d(
                 TAG,
-                "requestNetwork: ssid=$ssid, bssid=$bssid, password=$password, joinOnce=$joinOnce, withInternet=$withInternet, timeoutInSeconds=$timeoutInSeconds"
+                "requestNetwork: ssid=$ssid, bssid=$bssid, password=$password, withInternet=$withInternet, timeoutInSeconds=$timeoutInSeconds"
             )
         }
 
@@ -110,32 +116,16 @@ object WiFiHelper {
                 return false
             }
 
-            try {
-                if (mCallback != null) {
-                    if (BuildConfig.DEBUG) {
-                        Log.i(TAG, "Clean up pre-callback: $mCallback")
-                    }
+            unregisterNetworkCallback(this, mCallback)
 
-                    this.unregisterNetworkCallback(mCallback!!)
-                }
-            } catch (e: IllegalArgumentException) {
-                if (BuildConfig.DEBUG) {
-                    Log.wtf(TAG, "Clean up pre-callback error: $e")
-                }
-            }
-
-            mCallback = object : ConnectivityManager.NetworkCallback() {
+            mCallback = object : NetworkCallback() {
 
                 override fun onAvailable(network: Network) {
                     if (BuildConfig.DEBUG) {
                         Log.i(TAG, "onAvailable: $network")
                     }
 
-                    if (postVersion(Build.VERSION_CODES.M)) {
-                        mConnectivityManager!!.bindProcessToNetwork(network)
-                    } else {
-                        ConnectivityManager.setProcessDefaultNetwork(network)
-                    }
+                    WiFiHelper.bindProcessToNetwork(network)
                 }
 
                 override fun onLost(network: Network) {
@@ -172,9 +162,29 @@ object WiFiHelper {
         return false
     }
 
+    /**
+     * Unregister network callback to prevent *race condition* issue.
+     */
     @JvmStatic
-    @Suppress("deprecation")
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    fun unregisterNetworkCallback(
+        connectivityManager: ConnectivityManager,
+        callback: NetworkCallback?
+    ) {
+        try {
+            if (BuildConfig.DEBUG) {
+                Log.i(TAG, "Clean up pre-callback: $callback")
+            }
+            callback?.apply {
+                connectivityManager.unregisterNetworkCallback(this)
+            }
+        } catch (e: IllegalArgumentException) {
+            if (BuildConfig.DEBUG) {
+                Log.wtf(TAG, "Clean up pre-callback error: $e")
+            }
+        }
+    }
+
+    @JvmStatic
     fun resetDefaultNetwork(context: Context) {
         if (!postVersion(Build.VERSION_CODES.LOLLIPOP)) return
 
@@ -183,15 +193,7 @@ object WiFiHelper {
         }
 
         setUpConnectivityManager(context)
-        if (postVersion(Build.VERSION_CODES.M)) {
-            mConnectivityManager?.boundNetworkForProcess?.apply {
-                mConnectivityManager?.bindProcessToNetwork(null)
-            }
-        } else {
-            ConnectivityManager.getProcessDefaultNetwork()?.apply {
-                ConnectivityManager.setProcessDefaultNetwork(null)
-            }
-        }
+        bindProcessToNetwork(null)
 
         mCallback?.apply {
             try {
@@ -201,6 +203,24 @@ object WiFiHelper {
             }
         }
         mCallback = null
+    }
+
+    /**
+     * Binds the current process to ***network***. All Sockets created in the future (and not explicitly bound via a bound SocketFactory from [Network.getSocketFactory()](https://developer.android.com/reference/android/net/Network#getSocketFactory())) will be bound to ***network***. All host name resolutions will be limited to ***network*** as well. Note that if ***network*** ever disconnects, all Sockets created in this way will cease to work and all host name resolutions will fail. This is by design so an application doesn't accidentally use Sockets it thinks are still bound to a particular [Network](https://developer.android.com/reference/android/net/Network). To clear binding pass ***null*** for ***network***. Using individually bound Sockets created by Network.getSocketFactory().createSocket() and performing network-specific host name resolutions via [Network.getAllByName](https://developer.android.com/reference/android/net/Network#getAllByName(java.lang.String)) is preferred to calling ***bindProcessToNetwork***.
+     *
+     * For more information about ***bindProcessToNetwork***, see [bindProcessToNetwork](https://developer.android.com/reference/android/net/ConnectivityManager#bindProcessToNetwork(android.net.Network))
+     */
+    @JvmStatic
+    private fun bindProcessToNetwork(network: Network?) {
+        if (postVersion(Build.VERSION_CODES.M)) {
+            mConnectivityManager?.boundNetworkForProcess?.apply {
+                mConnectivityManager?.bindProcessToNetwork(network)
+            }
+        } else {
+            ConnectivityManager.getProcessDefaultNetwork()?.apply {
+                ConnectivityManager.setProcessDefaultNetwork(network)
+            }
+        }
     }
 
     @JvmStatic
@@ -214,4 +234,5 @@ object WiFiHelper {
     fun postVersion(sdkInt: Int): Boolean {
         return Build.VERSION.SDK_INT >= sdkInt
     }
+
 }

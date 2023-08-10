@@ -36,7 +36,6 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                     ?: return result.error("404", null, null)
                 val bssid = call.argument<String>("bssid")
                 val password = call.argument<String>("password")
-                val joinOnce = call.argument<Boolean>("joinOnce") ?: true
                 val withInternet = call.argument<Boolean>("withInternet") ?: false
                 val timeoutInSeconds = call.argument<Int>("timeoutInSeconds") ?: 30
 
@@ -50,7 +49,6 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                         ssid,
                         bssid,
                         password,
-                        joinOnce,
                         withInternet,
                         timeoutInSeconds
                     )
