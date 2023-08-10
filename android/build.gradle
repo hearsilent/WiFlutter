@@ -1,0 +1,96 @@
+<<<<<<< HEAD
+//package android
+
+group 'hearsilent.wiflutter'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.8.20'
+=======
+group 'hearsilent.wiflutter.wiflutter'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.7.10'
+>>>>>>> 1d0974c (Create flutter plugin project)
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+<<<<<<< HEAD
+        classpath 'com.android.tools.build:gradle:7.4.2'
+=======
+        classpath 'com.android.tools.build:gradle:7.3.0'
+>>>>>>> 1d0974c (Create flutter plugin project)
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+<<<<<<< HEAD
+    compileSdk 31
+=======
+    compileSdkVersion 31
+>>>>>>> 1d0974c (Create flutter plugin project)
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    defaultConfig {
+<<<<<<< HEAD
+        minSdkVersion 21
+=======
+        minSdkVersion 16
+>>>>>>> 1d0974c (Create flutter plugin project)
+    }
+
+    dependencies {
+        testImplementation 'org.jetbrains.kotlin:kotlin-test'
+<<<<<<< HEAD
+        testImplementation 'org.mockito:mockito-core:5.4.0'
+=======
+        testImplementation 'org.mockito:mockito-core:5.0.0'
+>>>>>>> 1d0974c (Create flutter plugin project)
+    }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+
+            testLogging {
+<<<<<<< HEAD
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+                outputs.upToDateWhen { false }
+                showStandardStreams = true
+=======
+               events "passed", "skipped", "failed", "standardOut", "standardError"
+               outputs.upToDateWhen {false}
+               showStandardStreams = true
+>>>>>>> 1d0974c (Create flutter plugin project)
+            }
+        }
+    }
+}
