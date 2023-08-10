@@ -2,10 +2,7 @@ name: wiflutter
 description: A new Flutter plugin project.
 version: 0.0.1
 homepage:
-<<<<<<< HEAD
 repository: https://github.com/hearsilent/WiFlutter
-=======
->>>>>>> 1d0974c (Create flutter plugin project)
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
