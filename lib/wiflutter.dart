@@ -5,7 +5,6 @@ class WiFlutter {
     required String ssid,
     String? bssid,
     String? password,
-    bool joinOnce = true,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) =>

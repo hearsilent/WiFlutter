@@ -56,12 +56,4 @@ void main() {
   test('$MethodChannelWiFlutter is the default instance', () {
     expect(initialPlatform, isInstanceOf<MethodChannelWiFlutter>());
   });
-
-  test('getPlatformVersion', () async {
-    WiFlutter wiflutterPlugin = WiFlutter();
-    MockWiFlutterPlatform fakePlatform = MockWiFlutterPlatform();
-    WiFlutterPlatform.instance = fakePlatform;
-
-    expect(await wiflutterPlugin.getPlatformVersion(), '42');
-  });
 }
