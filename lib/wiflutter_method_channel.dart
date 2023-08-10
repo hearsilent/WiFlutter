@@ -10,30 +10,37 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   final methodChannel = const MethodChannel('wiflutter');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    return await methodChannel.invokeMethod<String>('getPlatformVersion');
-  }
-
-  @override
   Future<bool?> connect({
     required String ssid,
     String? bssid,
     String? password,
-    bool joinOnce = true,
     bool withInternet = false,
     int timeoutInSeconds = 30,
-  }) async {
-    return await methodChannel.invokeMethod<bool>('connect', {
-      'ssid': ssid,
-      "password": password,
-      "joinOnce": joinOnce,
-      "withInternet": withInternet,
-      "timeoutInSeconds": timeoutInSeconds
-    });
-  }
+  }) async =>
+      await methodChannel.invokeMethod<bool>('connect', {
+        'ssid': ssid,
+        "password": password,
+        "withInternet": withInternet,
+        "timeoutInSeconds": timeoutInSeconds
+      });
 
   @override
-  Future<bool?> disconnect() async {
-    return await methodChannel.invokeMethod<bool>('disconnect');
-  }
+  Future<bool?> disconnect() async =>
+      await methodChannel.invokeMethod<bool>('disconnect');
+
+  @override
+  Future<String?> getCurrentSSID() async =>
+      await methodChannel.invokeMethod<String>('get_current_ssid');
+
+  @override
+  Future<String?> getIP() async =>
+      await methodChannel.invokeMethod<String>('get_ip');
+
+  @override
+  Future<bool?> isWifiEnabled() async =>
+      await methodChannel.invokeMethod<bool>('is_wif_enabled');
+
+  @override
+  Future<bool?> setWifiEnabled(bool enable) async =>
+      await methodChannel.invokeMethod<bool>('set_wifi_enabled');
 }
