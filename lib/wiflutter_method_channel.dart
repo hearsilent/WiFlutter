@@ -23,7 +23,13 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) async {
-    return await methodChannel.invokeMethod<bool>('connect');
+    return await methodChannel.invokeMethod<bool>('connect', {
+      'ssid': ssid,
+      "password": password,
+      "joinOnce": joinOnce,
+      "withInternet": withInternet,
+      "timeoutInSeconds": timeoutInSeconds
+    });
   }
 
   @override
