@@ -36,17 +36,10 @@ flutter:
   plugin:
     platforms:
       android:
-<<<<<<< HEAD
         package: hearsilent.wiflutter
         pluginClass: WiFlutterPlugin
       ios:
         pluginClass: WiFlutterPlugin
-=======
-        package: hearsilent.wiflutter.wiflutter
-        pluginClass: WiflutterPlugin
-      ios:
-        pluginClass: WiflutterPlugin
->>>>>>> 1d0974c (Create flutter plugin project)
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
