@@ -2,6 +2,7 @@ name: wiflutter
 description: A new Flutter plugin project.
 version: 0.0.1
 homepage:
+repository: https://github.com/hearsilent/WiFlutter
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
