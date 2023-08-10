@@ -32,7 +32,7 @@ Disconnect:
 await _wiFlutterPlugin.disconnect();
 ```
 
-## Wi-Fi connections
+## Wi-Fi Challenge Rift Guide
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
 | Connect/Disconnect.                                   | :white_check_mark: | :x:  				        |
