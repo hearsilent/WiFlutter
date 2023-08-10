@@ -9,6 +9,45 @@ class MockWiFlutterPlatform
     implements WiFlutterPlatform {
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future<bool?> connect({
+    String? ssid,
+    String? bssid,
+    String? password,
+    bool joinOnce = true,
+    bool withInternet = false,
+    int timeoutInSeconds = 30,
+  }) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> disconnect() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> getCurrentSSID() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String?> getIP() {
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> isWifiEnabled() {
+    // TODO: implement isWifiEnabled
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<bool?> setWifiEnabled(bool enable) {
+    // TODO: implement setWifiEnabled
+    throw UnimplementedError();
+  }
 }
 
 void main() {

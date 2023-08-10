@@ -36,4 +36,20 @@ abstract class WiFlutterPlatform extends PlatformInterface {
   Future<bool?> disconnect() async {
     throw UnimplementedError('disconnect() has not been implemented.');
   }
+
+  Future<String?> getCurrentSSID() async {
+    throw UnimplementedError('getCurrentSSID() has not been implemented.');
+  }
+
+  Future<String?> getIP() async {
+    throw UnimplementedError('getIP() has not been implemented.');
+  }
+
+  Future<bool?> isWifiEnabled() async {
+    throw UnimplementedError('isWifiEnabled() has not been implemented.');
+  }
+
+  Future<bool?> setWifiEnabled(bool enable) async {
+    throw UnimplementedError('setWifiEnabled() has not been implemented.');
+  }
 }

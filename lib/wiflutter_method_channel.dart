@@ -27,4 +27,20 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   @override
   Future<bool?> disconnect() async =>
       await methodChannel.invokeMethod<bool>('disconnect');
+
+  @override
+  Future<String?> getCurrentSSID() async =>
+      await methodChannel.invokeMethod<String>('get_current_ssid');
+
+  @override
+  Future<String?> getIP() async =>
+      await methodChannel.invokeMethod<String>('get_ip');
+
+  @override
+  Future<bool?> isWifiEnabled() async =>
+      await methodChannel.invokeMethod<bool>('is_wif_enabled');
+
+  @override
+  Future<bool?> setWifiEnabled(bool enable) async =>
+      await methodChannel.invokeMethod<bool>('set_wifi_enabled');
 }
