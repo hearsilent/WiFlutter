@@ -51,7 +51,7 @@ object WiFiHelper {
         bssid: String? = null,
         password: String? = null,
         joinOnce: Boolean? = true,
-        withInternet: Boolean? = false,
+        withInternet: Boolean = false,
         timeoutInSeconds: Int = 30
     ): Boolean {
         if (!postVersion(Build.VERSION_CODES.LOLLIPOP)) return false
@@ -66,7 +66,11 @@ object WiFiHelper {
         setUpConnectivityManager(context)
         mConnectivityManager?.apply {
             val builder = NetworkRequest.Builder()
-            builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+            if (withInternet) {
+                builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+            } else {
+                builder.removeCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+            }
             builder.addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
 
             if (postVersion(Build.VERSION_CODES.Q)) {

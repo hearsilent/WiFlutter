@@ -62,7 +62,8 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                     return result.error("500", "Context is not initialized", null)
                 }
 
-                result.success(WiFiHelper.resetDefaultNetwork(context))
+                WiFiHelper.resetDefaultNetwork(context)
+                result.success(true)
             }
 
             else -> {
