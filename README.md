@@ -32,8 +32,16 @@ Disconnect:
 await _wiFlutterPlugin.disconnect();
 ```
 
-## TODO
-- Support iOS devices
+## Wi-Fi connections
+|                      Description                      |      Android       |         iOS          |
+| :---------------------------------------------------- | :----------------: | :------------------: |
+| Connect/Disconnect  									| :white_check_mark  |  :x:  				|
+| Wi-Fi Protected Access								| :x:				 |  :x:  				|
+| Enable/Disable Wi-Fi                       			| :x: 				 |  :x:  				|
+| Get Wi-Fi status                                   	| :x: 				 |  :x:  				|
+| Get Wi-Fi current SSID                                | :x: 				 |  :x:  				|
+| Get Wi-Fi current IP                                	| :x: 				 |  :x:  				|
+
 
 ## Compatibility
 
