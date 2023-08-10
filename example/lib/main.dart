@@ -36,7 +36,12 @@ class _MyAppState extends State<MyApp> {
             children: [
               ElevatedButton(
                   onPressed: () async {
-                    await _wiFlutterPlugin.connect();
+                    await _wiFlutterPlugin.connect(
+                      ssid: 'Diablo_III',
+                      password: 'st0x1_0xf_j0rdan',
+                      withInternet: false,
+                      timeoutInSeconds: 40,
+                    );
                   },
                   child: const Text("Connect")),
               ElevatedButton(
