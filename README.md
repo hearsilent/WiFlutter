@@ -4,7 +4,7 @@
 
 Control Wi-Fi in Flutter like a boss.
 
-<img src="https://github.com/hearsilent/WiFlutter/raw/main/screenshots/like_a_boss.webp" height="500">
+<img src="https://github.com/hearsilent/WiFlutter/raw/main/screenshots/like_a_boss.webp" height="500"> 
 
 ## Setup
 
@@ -35,15 +35,13 @@ await _wiFlutterPlugin.disconnect();
 ## Wi-Fi connections
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
-| Connect/Disconnect  									| :white_check_mark: |  :x:  				|
-| Wi-Fi Protected Access								| :x:				 |  :x:  				|
-| Enable/Disable Wi-Fi                       			| :x: 				 |  :x:  				|
-| Get Wi-Fi status                                   	| :x: 				 |  :x:  				|
-| Get Wi-Fi current SSID                                | :x: 				 |  :x:  				|
-| Get Wi-Fi current IP                                	| :x: 				 |  :x:  				|
+| Connect/Disconnect.                                   | :white_check_mark: | :x:  				        |
+| Wi-Fi Protected Access								                | :x:				         |  :x:  				        |
+| Enable/Disable Wi-Fi                                  | :x:				         |  :x:  				        |
+| Get Wi-Fi status                                      | :x:				         |  :x:  				        |
+| Get Wi-Fi current SSID                                | :x:				         |  :x:  				        |
+| Get Wi-Fi current IP                                  | :x:				         |  :x:  				        |
 
-## TODO
-- Support iOS devices
 
 ## Compatibility
 
@@ -72,3 +70,4 @@ Android LOLLIPOP 5.0+
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
+
