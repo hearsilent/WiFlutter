@@ -1,5 +1,7 @@
 package hearsilent.wiflutter
 
+import android.content.Context
+import hearsilent.wiflutter.libs.WiFiHelper
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -8,6 +10,9 @@ import io.flutter.plugin.common.MethodChannel.Result
 
 /** WiFlutterPlugin */
 class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
+
+    private lateinit var context: Context
+
     /// The MethodChannel that will the communication between Flutter and native Android
     ///
     /// This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -15,6 +20,7 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
 
     override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        context = flutterPluginBinding.applicationContext
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "wiflutter")
         channel.setMethodCallHandler(this)
     }
@@ -26,11 +32,37 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
             }
 
             "connect" -> {
-                result.success(true)
+                val ssid = call.argument<String>("ssid")
+                    ?: return result.error("404", null, null)
+                val bssid = call.argument<String>("bssid")
+                val password = call.argument<String>("password")
+                val joinOnce = call.argument<Boolean>("joinOnce") ?: true
+                val withInternet = call.argument<Boolean>("withInternet") ?: false
+                val timeoutInSeconds = call.argument<Int>("timeoutInSeconds") ?: 30
+
+                if (!::context.isInitialized) {
+                    return result.error("500", "Context is not initialized", null)
+                }
+
+                result.success(
+                    WiFiHelper.requestNetwork(
+                        context,
+                        ssid,
+                        bssid,
+                        password,
+                        joinOnce,
+                        withInternet,
+                        timeoutInSeconds
+                    )
+                )
             }
 
             "disconnect" -> {
-                result.success(true)
+                if (!::context.isInitialized) {
+                    return result.error("500", "Context is not initialized", null)
+                }
+
+                result.success(WiFiHelper.resetDefaultNetwork(context))
             }
 
             else -> {

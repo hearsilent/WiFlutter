@@ -6,7 +6,7 @@ class WiFlutter {
   }
 
   Future<bool?> connect({
-    String? ssid,
+    required String ssid,
     String? bssid,
     String? password,
     bool joinOnce = true,
