@@ -1,5 +1,5 @@
 # WiFlutter
-[![JitPack](https://jitpack.io/v/hearsilent/WiFlutter.svg)](https://jitpack.io/#hearsilent/WiFlutter)
+[![pub](https://img.shields.io/pub/v/wiflutter)](https://pub.dev/packages/wiflutter)
 [![license](https://img.shields.io/github/license/hearsilent/TagEditText.svg)](https://github.com/hearsilent/TagEditText/blob/main/LICENSE)
 
 Control Wi-Fi in Flutter like a boss.
@@ -11,9 +11,7 @@ Control Wi-Fi in Flutter like a boss.
 The easiest way to add the **WiFlutter** library to your project is by adding it as a dependency to your `pubspec.yaml`
 ```yaml
 dependencies:
-  wiflutter:
-    git:
-      url: git@github.com:hearsilent/WiFlutter.git
+  wiflutter: ^0.0.4
 ```
 
 ## Usage
