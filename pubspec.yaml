@@ -1,8 +1,15 @@
 name: wiflutter
 description: Control Wi-Fi in Flutter like a boss.
-version: 0.0.4
-homepage: https://pub.dev/packages/wiflutter
 repository: https://github.com/hearsilent/WiFlutter
+homepage: https://pub.dev/packages/wiflutter
+version: 0.0.5
+
+topics:
+- wifi
+- iot
+
+false_secrets:
+  - example/**
 
 environment:
   sdk: '>=3.0.5 <4.0.0'
