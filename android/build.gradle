@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //package android
 
 group 'hearsilent.wiflutter'
@@ -6,24 +5,13 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.8.20'
-=======
-group 'hearsilent.wiflutter.wiflutter'
-version '1.0-SNAPSHOT'
-
-buildscript {
-    ext.kotlin_version = '1.7.10'
->>>>>>> 1d0974c (Create flutter plugin project)
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-<<<<<<< HEAD
         classpath 'com.android.tools.build:gradle:7.4.2'
-=======
-        classpath 'com.android.tools.build:gradle:7.3.0'
->>>>>>> 1d0974c (Create flutter plugin project)
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -39,11 +27,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-<<<<<<< HEAD
     compileSdk 31
-=======
-    compileSdkVersion 31
->>>>>>> 1d0974c (Create flutter plugin project)
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -60,20 +44,12 @@ android {
     }
 
     defaultConfig {
-<<<<<<< HEAD
-        minSdkVersion 21
-=======
         minSdkVersion 16
->>>>>>> 1d0974c (Create flutter plugin project)
     }
 
     dependencies {
         testImplementation 'org.jetbrains.kotlin:kotlin-test'
-<<<<<<< HEAD
         testImplementation 'org.mockito:mockito-core:5.4.0'
-=======
-        testImplementation 'org.mockito:mockito-core:5.0.0'
->>>>>>> 1d0974c (Create flutter plugin project)
     }
 
     testOptions {
@@ -81,15 +57,9 @@ android {
             useJUnitPlatform()
 
             testLogging {
-<<<<<<< HEAD
                 events "passed", "skipped", "failed", "standardOut", "standardError"
                 outputs.upToDateWhen { false }
                 showStandardStreams = true
-=======
-               events "passed", "skipped", "failed", "standardOut", "standardError"
-               outputs.upToDateWhen {false}
-               showStandardStreams = true
->>>>>>> 1d0974c (Create flutter plugin project)
             }
         }
     }
