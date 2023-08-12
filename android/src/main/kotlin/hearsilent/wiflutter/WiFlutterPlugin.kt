@@ -60,6 +60,14 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                 result.success(true)
             }
 
+            "get_current_ssid" -> {
+                if (!::context.isInitialized) {
+                    return result.error("500", "Context is not initialized", null)
+                }
+
+                result.success(WiFiHelper.getCurrentSSID(context))
+            }
+
             else -> {
                 result.notImplemented()
             }

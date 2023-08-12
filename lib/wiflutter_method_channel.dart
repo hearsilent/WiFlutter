@@ -38,7 +38,7 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
 
   @override
   Future<bool?> isWifiEnabled() async =>
-      await methodChannel.invokeMethod<bool>('is_wif_enabled');
+      await methodChannel.invokeMethod<bool>('is_wifi_enabled');
 
   @override
   Future<bool?> setWifiEnabled(bool enable) async =>
