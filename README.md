@@ -33,12 +33,13 @@ await _wiFlutterPlugin.disconnect();
 ## Wi-Fi Challenge Rift Guide
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
-| Connect/Disconnect.                                   | :white_check_mark: | :x:  				        |
-| Wi-Fi Protected Access								                | :x:				         |  :x:  				        |
-| Enable/Disable Wi-Fi                                  | :x:				         |  :x:  				        |
-| Get Wi-Fi status                                      | :x:				         |  :x:  				        |
-| Get Wi-Fi current SSID                                | :x:				         |  :x:  				        |
-| Get Wi-Fi current IP                                  | :x:				         |  :x:  				        |
+| Connect/Disconnect                                    | :white_check_mark: | :x:  				        |
+| Fuzzing Connect                                       | :x:	               | :x:  				        |
+| Wi-Fi Protected Access								                | :x:				         | :x:  				        |
+| Enable/Disable Wi-Fi                                  | :x:				         | :x:  				        |
+| Get Wi-Fi status                                      | :x:				         | :x:  				        |
+| Get Wi-Fi current SSID                                | :x:				         | :x:  				        |
+| Get Wi-Fi current IP                                  | :x:				         | :x:  				        |
 
 
 ## Compatibility
