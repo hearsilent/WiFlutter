@@ -12,6 +12,7 @@ import android.net.wifi.WifiManager
 import android.net.wifi.WifiNetworkSpecifier
 import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast
+import hearsilent.wiflutter.enums.EnterpriseCertificateEnum
 import io.flutter.BuildConfig
 import io.flutter.Log
 
@@ -51,12 +52,12 @@ object WiFiHelper {
     }
 
     @JvmStatic
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     fun requestNetwork(
         context: Context,
         ssid: String,
         bssid: String? = null,
         password: String? = null,
+        enterpriseCertificate: EnterpriseCertificateEnum,
         withInternet: Boolean = false,
         timeoutInSeconds: Int = 30
     ): Boolean {
@@ -104,7 +105,26 @@ object WiFiHelper {
                                 "Should pass password through Wi-Fi security type (WiFi Protected Access)"
                             )
                         }
-                        specifierBuilder.setWpa2Passphrase(password)
+                        when (enterpriseCertificate) {
+                            EnterpriseCertificateEnum.WPA2_PSK -> {
+                                specifierBuilder.setWpa2Passphrase(password)
+                            }
+
+                            EnterpriseCertificateEnum.WPA3_SAE -> {
+                                specifierBuilder.setWpa3Passphrase(password)
+                            }
+
+                            else -> {
+                                if (BuildConfig.DEBUG) {
+                                    Log.wtf(
+                                        TAG,
+                                        "Enterprise certificate is Unknown, but password($password) is not empty."
+                                    )
+                                }
+                                return false
+                            }
+                        }
+
                     }
                 }
 
