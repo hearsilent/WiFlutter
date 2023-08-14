@@ -1,6 +1,6 @@
 <a href="https://pub.dev/packages/wiflutter">
   <p align="center">  
-    <img width="500px" src="screenshots/wiflutter_logo.webp">
+    <img width="100%" src="screenshots/wiflutter_logo.webp">
   </p>
 </a>
 
