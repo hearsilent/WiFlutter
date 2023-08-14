@@ -1,8 +1,6 @@
-<img src="https://github.com/hearsilent/WiFlutter/raw/main/screenshots/wiflutter_logo.webp" weight="500"> 
-
 <a href="https://pub.dev/packages/wiflutter">
   <p align="center">  
-    <img width="360px" src="screenshots/wiflutter_logo.webp">
+    <img width="500px" src="screenshots/wiflutter_logo.webp">
   </p>
 </a>
 
