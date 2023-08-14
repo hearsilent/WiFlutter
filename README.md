@@ -1,6 +1,21 @@
-# WiFlutter
-[![pub](https://img.shields.io/pub/v/wiflutter)](https://pub.dev/packages/wiflutter)
-[![license](https://img.shields.io/github/license/hearsilent/TagEditText.svg)](https://github.com/hearsilent/TagEditText/blob/main/LICENSE)
+<img src="https://github.com/hearsilent/WiFlutter/raw/main/screenshots/wiflutter_logo.webp" weight="500"> 
+
+<a href="https://pub.dev/packages/wiflutter">
+  <p align="center">  
+    <img width="360px" src="screenshots/wiflutter_logo.webp">
+  </p>
+</a>
+
+<p align="center">
+  <a href="https://pub.dev/packages/wiflutter">
+    <img src="https://img.shields.io/pub/v/wiflutter" alt="pub" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/hearsilent/WiFlutter.svg" alt="license"/>
+  </a>
+</p>
+
+---
 
 Control Wi-Fi in Flutter like a boss.
 
