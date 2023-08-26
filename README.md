@@ -49,7 +49,7 @@ await _wiFlutterPlugin.disconnect();
 | :---------------------------------------------------- | :----------------: | :------------------: |
 | Connect/Disconnect                                    | :white_check_mark: | :x:  				        |
 | Fuzzing Connect                                       | :x:	               | :x:  				        |
-| Wi-Fi Protected Access								                | :x:				         | :x:  				        |
+| Wi-Fi Protected Access								                | :white_check_mark: | :x:  				        |
 | Enable/Disable Wi-Fi                                  | :x:				         | :x:  				        |
 | Get Wi-Fi status                                      | :x:				         | :x:  				        |
 | Get Wi-Fi current SSID                                | :x:				         | :x:  				        |
