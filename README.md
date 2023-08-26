@@ -1,6 +1,19 @@
-# WiFlutter
-[![pub](https://img.shields.io/pub/v/wiflutter)](https://pub.dev/packages/wiflutter)
-[![license](https://img.shields.io/github/license/hearsilent/TagEditText.svg)](https://github.com/hearsilent/TagEditText/blob/main/LICENSE)
+<a href="https://pub.dev/packages/wiflutter">
+  <p align="center">  
+    <img width="100%" src="screenshots/wiflutter_logo.webp">
+  </p>
+</a>
+
+<p align="center">
+  <a href="https://pub.dev/packages/wiflutter">
+    <img src="https://img.shields.io/pub/v/wiflutter" alt="pub" />
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/github/license/hearsilent/WiFlutter.svg" alt="license"/>
+  </a>
+</p>
+
+---
 
 Control Wi-Fi in Flutter like a boss.
 
@@ -21,6 +34,7 @@ Connect:
 await _wiFlutterPlugin.connect(
   ssid: 'Diablo_III',
   password: 'st0x1_0xf_j0rdan',
+  enterpriseCertificate: EnterpriseCertificateEnum.WPA2_PSK,
   withInternet: false,
 );
 ```
@@ -33,12 +47,13 @@ await _wiFlutterPlugin.disconnect();
 ## Wi-Fi Challenge Rift Guide
 |                      Description                      |      Android       |         iOS          |
 | :---------------------------------------------------- | :----------------: | :------------------: |
-| Connect/Disconnect.                                   | :white_check_mark: | :x:  				        |
-| Wi-Fi Protected Access								                | :x:				         |  :x:  				        |
-| Enable/Disable Wi-Fi                                  | :x:				         |  :x:  				        |
-| Get Wi-Fi status                                      | :x:				         |  :x:  				        |
-| Get Wi-Fi current SSID                                | :x:				         |  :x:  				        |
-| Get Wi-Fi current IP                                  | :x:				         |  :x:  				        |
+| Connect/Disconnect                                    | :white_check_mark: | :x:  				        |
+| Fuzzing Connect                                       | :x:	               | :x:  				        |
+| Wi-Fi Protected Access								                | :white_check_mark: | :x:  				        |
+| Enable/Disable Wi-Fi                                  | :x:				         | :x:  				        |
+| Get Wi-Fi status                                      | :x:				         | :x:  				        |
+| Get Wi-Fi current SSID                                | :x:				         | :x:  				        |
+| Get Wi-Fi current IP                                  | :x:				         | :x:  				        |
 
 
 ## Compatibility

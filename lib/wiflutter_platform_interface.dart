@@ -1,5 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
+import 'enums/enterprise_certificate_enum.dart';
 import 'wiflutter_method_channel.dart';
 
 abstract class WiFlutterPlatform extends PlatformInterface {
@@ -25,6 +26,7 @@ abstract class WiFlutterPlatform extends PlatformInterface {
 
   Future<bool?> connect({
     required String ssid,
+    required EnterpriseCertificateEnum enterpriseCertificate,
     String? bssid,
     String? password,
     bool withInternet = false,

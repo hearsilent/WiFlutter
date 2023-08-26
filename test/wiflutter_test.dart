@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:wiflutter/enums/enterprise_certificate_enum.dart';
 import 'package:wiflutter/wiflutter_platform_interface.dart';
 import 'package:wiflutter/wiflutter_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
@@ -8,10 +9,11 @@ class MockWiFlutterPlatform
     implements WiFlutterPlatform {
   @override
   Future<bool?> connect({
-    String? ssid,
+    required String ssid,
     String? bssid,
     String? password,
-    bool joinOnce = true,
+    EnterpriseCertificateEnum enterpriseCertificate =
+        EnterpriseCertificateEnum.WPA2_PSK,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) {
@@ -35,13 +37,11 @@ class MockWiFlutterPlatform
 
   @override
   Future<bool?> isWifiEnabled() {
-    // TODO: implement isWifiEnabled
     throw UnimplementedError();
   }
 
   @override
   Future<bool?> setWifiEnabled(bool enable) {
-    // TODO: implement setWifiEnabled
     throw UnimplementedError();
   }
 }

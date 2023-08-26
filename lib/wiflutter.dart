@@ -1,3 +1,4 @@
+import 'enums/enterprise_certificate_enum.dart';
 import 'wiflutter_platform_interface.dart';
 
 class WiFlutter {
@@ -5,6 +6,8 @@ class WiFlutter {
     required String ssid,
     String? bssid,
     String? password,
+    EnterpriseCertificateEnum enterpriseCertificate =
+        EnterpriseCertificateEnum.WPA2_PSK,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) =>
@@ -12,6 +15,7 @@ class WiFlutter {
         ssid: ssid,
         bssid: bssid,
         password: password,
+        enterpriseCertificate: enterpriseCertificate,
         withInternet: withInternet,
         timeoutInSeconds: timeoutInSeconds,
       );
