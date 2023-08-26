@@ -21,6 +21,7 @@ Connect:
 await _wiFlutterPlugin.connect(
   ssid: 'Diablo_III',
   password: 'st0x1_0xf_j0rdan',
+  enterpriseCertificate: EnterpriseCertificateEnum.WPA2_PSK,
   withInternet: false,
 );
 ```

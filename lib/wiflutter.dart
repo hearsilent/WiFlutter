@@ -4,17 +4,18 @@ import 'wiflutter_platform_interface.dart';
 class WiFlutter {
   Future<bool?> connect({
     required String ssid,
-    required EnterpriseCertificateEnum enterpriseCertificate,
     String? bssid,
     String? password,
+    EnterpriseCertificateEnum enterpriseCertificate =
+        EnterpriseCertificateEnum.WPA2_PSK,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) =>
       WiFlutterPlatform.instance.connect(
         ssid: ssid,
-        security: enterpriseCertificate,
         bssid: bssid,
         password: password,
+        enterpriseCertificate: enterpriseCertificate,
         withInternet: withInternet,
         timeoutInSeconds: timeoutInSeconds,
       );

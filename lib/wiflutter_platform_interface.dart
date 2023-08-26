@@ -26,9 +26,10 @@ abstract class WiFlutterPlatform extends PlatformInterface {
 
   Future<bool?> connect({
     required String ssid,
-    required EnterpriseCertificateEnum security,
     String? bssid,
     String? password,
+    EnterpriseCertificateEnum enterpriseCertificate =
+        EnterpriseCertificateEnum.WPA2_PSK,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) async {
