@@ -1,5 +1,10 @@
 name: wiflutter
-description: Control Wi-Fi in Flutter like a boss.
+description: |
+Control Wi-Fi in Flutter like a boss.
+Take the reins of connectivity for Android and iOS with swagger –
+connect, disconnect, and snag SSIDs effortlessly.
+Your Wi-Fi, your rules – boss mode activated!
+
 repository: https://github.com/hearsilent/WiFlutter
 homepage: https://pub.dev/packages/wiflutter
 version: 0.0.6
