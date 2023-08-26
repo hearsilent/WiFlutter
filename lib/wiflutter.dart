@@ -1,8 +1,10 @@
+import 'enums/enterprise_certificate_enum.dart';
 import 'wiflutter_platform_interface.dart';
 
 class WiFlutter {
   Future<bool?> connect({
     required String ssid,
+    required EnterpriseCertificateEnum enterpriseCertificate,
     String? bssid,
     String? password,
     bool withInternet = false,
@@ -10,6 +12,7 @@ class WiFlutter {
   }) =>
       WiFlutterPlatform.instance.connect(
         ssid: ssid,
+        security: enterpriseCertificate,
         bssid: bssid,
         password: password,
         withInternet: withInternet,

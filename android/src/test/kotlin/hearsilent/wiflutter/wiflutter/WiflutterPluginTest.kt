@@ -16,7 +16,7 @@ import org.mockito.Mockito
 internal class WiflutterPluginTest {
   @Test
   fun onMethodCall_getPlatformVersion_returnsExpectedValue() {
-    val plugin = WiflutterPlugin()
+    val plugin = WiFlutterPlugin()
 
     val call = MethodCall("getPlatformVersion", null)
     val mockResult: MethodChannel.Result = Mockito.mock(MethodChannel.Result::class.java)

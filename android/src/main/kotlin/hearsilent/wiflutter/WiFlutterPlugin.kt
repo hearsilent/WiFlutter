@@ -1,6 +1,8 @@
 package hearsilent.wiflutter
 
 import android.content.Context
+import hearsilent.wiflutter.enums.EnterpriseCertificateEnum
+import hearsilent.wiflutter.enums.EnterpriseCertificateEnum.*
 import hearsilent.wiflutter.libs.WiFiHelper
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -32,11 +34,21 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                     ?: return result.error("404", null, null)
                 val bssid = call.argument<String>("bssid")
                 val password = call.argument<String>("password")
+                val enterpriseCertificate = call.argument<String>("enterpriseCertificate")
+                    ?.let { EnterpriseCertificateEnum.valueOf(it) }
+                    ?: EnterpriseCertificateEnum.UNKNOWN
                 val withInternet = call.argument<Boolean>("withInternet") ?: false
                 val timeoutInSeconds = call.argument<Int>("timeoutInSeconds") ?: 30
 
                 if (!::context.isInitialized) {
                     return result.error("500", "Context is not initialized", null)
+                }
+                if (!password.isNullOrEmpty() && enterpriseCertificate == EnterpriseCertificateEnum.UNKNOWN) {
+                    return result.error(
+                        "400",
+                        "Enterprise certificate is Unknown, but password($password) is not empty.",
+                        null
+                    )
                 }
 
                 result.success(
@@ -45,6 +57,7 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                         ssid,
                         bssid,
                         password,
+                        enterpriseCertificate,
                         withInternet,
                         timeoutInSeconds
                     )

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+import 'enums/enterprise_certificate_enum.dart';
 import 'wiflutter_platform_interface.dart';
 
 /// An implementation of [WiFlutterPlatform] that uses method channels.
@@ -12,6 +13,7 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   @override
   Future<bool?> connect({
     required String ssid,
+    required EnterpriseCertificateEnum security,
     String? bssid,
     String? password,
     bool withInternet = false,
@@ -19,6 +21,7 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   }) async =>
       await methodChannel.invokeMethod<bool>('connect', {
         'ssid': ssid,
+        'enterpriseCertificate': security.name,
         "password": password,
         "withInternet": withInternet,
         "timeoutInSeconds": timeoutInSeconds
