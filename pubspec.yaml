@@ -2,7 +2,7 @@ name: wiflutter
 description: Control Wi-Fi in Flutter like a boss.
 repository: https://github.com/hearsilent/WiFlutter
 homepage: https://pub.dev/packages/wiflutter
-version: 0.0.5
+version: 0.0.6
 
 topics:
 - wifi
