@@ -26,7 +26,7 @@ abstract class WiFlutterPlatform extends PlatformInterface {
 
   Future<bool?> connect({
     required String ssid,
-    required EnterpriseCertificateEnum security,
+    required EnterpriseCertificateEnum enterpriseCertificate,
     String? bssid,
     String? password,
     bool withInternet = false,

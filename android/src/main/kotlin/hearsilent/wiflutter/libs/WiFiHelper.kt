@@ -118,13 +118,12 @@ object WiFiHelper {
                                 if (BuildConfig.DEBUG) {
                                     Log.wtf(
                                         TAG,
-                                        "Enterprise certificate is Unknown, but password($password) is not empty."
+                                        "Enterprise certificate is Unknown, auto set to WPA2_PSK."
                                     )
                                 }
-                                return false
+                                specifierBuilder.setWpa2Passphrase(password)
                             }
                         }
-
                     }
                 }
 

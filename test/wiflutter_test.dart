@@ -10,10 +10,10 @@ class MockWiFlutterPlatform
   @override
   Future<bool?> connect({
     required String ssid,
-    required EnterpriseCertificateEnum security,
     String? bssid,
     String? password,
-    bool joinOnce = true,
+    EnterpriseCertificateEnum enterpriseCertificate =
+        EnterpriseCertificateEnum.WPA2_PSK,
     bool withInternet = false,
     int timeoutInSeconds = 30,
   }) {

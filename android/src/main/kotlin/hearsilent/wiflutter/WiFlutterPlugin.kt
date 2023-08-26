@@ -43,13 +43,6 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                 if (!::context.isInitialized) {
                     return result.error("500", "Context is not initialized", null)
                 }
-                if (!password.isNullOrEmpty() && enterpriseCertificate == EnterpriseCertificateEnum.UNKNOWN) {
-                    return result.error(
-                        "400",
-                        "Enterprise certificate is Unknown, but password($password) is not empty.",
-                        null
-                    )
-                }
 
                 result.success(
                     WiFiHelper.requestNetwork(

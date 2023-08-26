@@ -13,7 +13,7 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   @override
   Future<bool?> connect({
     required String ssid,
-    required EnterpriseCertificateEnum security,
+    required EnterpriseCertificateEnum enterpriseCertificate,
     String? bssid,
     String? password,
     bool withInternet = false,
@@ -21,10 +21,10 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   }) async =>
       await methodChannel.invokeMethod<bool>('connect', {
         'ssid': ssid,
-        'enterpriseCertificate': security.name,
-        "password": password,
-        "withInternet": withInternet,
-        "timeoutInSeconds": timeoutInSeconds
+        'password': password,
+        'enterpriseCertificate': enterpriseCertificate.name,
+        'withInternet': withInternet,
+        'timeoutInSeconds': timeoutInSeconds
       });
 
   @override
