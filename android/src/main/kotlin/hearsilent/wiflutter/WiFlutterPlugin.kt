@@ -34,16 +34,16 @@ class WiFlutterPlugin : FlutterPlugin, MethodCallHandler {
                     ?: return result.error("404", null, null)
                 val bssid = call.argument<String>("bssid")
                 val password = call.argument<String>("password")
-                val enterpriseCertificate =
-                    call.argument<EnterpriseCertificateEnum>("enterpriseCertificate")
-                        ?: UNKNOWN
+                val enterpriseCertificate = call.argument<String>("enterpriseCertificate")
+                    ?.let { EnterpriseCertificateEnum.valueOf(it) }
+                    ?: EnterpriseCertificateEnum.UNKNOWN
                 val withInternet = call.argument<Boolean>("withInternet") ?: false
                 val timeoutInSeconds = call.argument<Int>("timeoutInSeconds") ?: 30
 
                 if (!::context.isInitialized) {
                     return result.error("500", "Context is not initialized", null)
                 }
-                if (!password.isNullOrEmpty() && enterpriseCertificate == UNKNOWN) {
+                if (!password.isNullOrEmpty() && enterpriseCertificate == EnterpriseCertificateEnum.UNKNOWN) {
                     return result.error(
                         "400",
                         "Enterprise certificate is Unknown, but password($password) is not empty.",

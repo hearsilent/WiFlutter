@@ -21,10 +21,7 @@ class MethodChannelWiFlutter extends WiFlutterPlatform {
   }) async =>
       await methodChannel.invokeMethod<bool>('connect', {
         'ssid': ssid,
-        'enterpriseCertificate': switch (security) {
-          EnterpriseCertificateEnum.WPA2_PSK => 1,
-          EnterpriseCertificateEnum.WPA3_SAE => 2
-        },
+        'enterpriseCertificate': security.name,
         "password": password,
         "withInternet": withInternet,
         "timeoutInSeconds": timeoutInSeconds

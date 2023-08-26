@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wiflutter/enums/enterprise_certificate_enum.dart';
 import 'package:wiflutter/wiflutter.dart';
 
 void main() {
@@ -36,6 +37,7 @@ class _MyAppState extends State<MyApp> {
                     await _wiFlutterPlugin.connect(
                       ssid: 'Diablo_III',
                       password: 'st0x1_0xf_j0rdan',
+                      enterpriseCertificate: EnterpriseCertificateEnum.WPA2_PSK,
                       withInternet: false,
                       timeoutInSeconds: 40,
                     );
